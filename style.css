@@ -1,0 +1,914 @@
+/*1. Pengaturan umum*/
+:root {
+    --ink: #302b2b;
+    --muted: #77706e;
+    --pink: #e99da9;
+    --pink-dark: #d77f90;
+    --cream: #fffaf5;
+    --mint: #dceee7;
+    --line: #eee5df;
+    --white: #fff
+}
+
+* {
+    box-sizing: border-box
+}
+
+html {
+    scroll-behavior: smooth
+}
+
+body {
+    margin: 0;
+    font-family: 'Nunito', sans-serif;
+    color: var(--ink);
+    background: var(--cream);
+    line-height: 1.7
+}
+
+a {
+    color: inherit;
+    text-decoration: none
+}
+
+.container {
+    width: min(1120px, calc(100% - 48px));
+    margin: auto
+}
+
+.site-header {
+    height: 88px;
+    background: rgba(255, 250, 245, .94);
+    border-bottom: 1px solid rgba(238, 229, 223, .8);
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    backdrop-filter: blur(12px)
+}
+
+.nav-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between
+}
+
+.brand {
+    font-size: 27px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    line-height: 1;
+    color: var(--ink)
+}
+
+.brand>span {
+    color: var(--pink-dark)
+}
+
+.brand small {
+    display: block;
+    font-size: 9px;
+    letter-spacing: .5px;
+    font-weight: 500;
+    color: var(--muted);
+    margin-top: 7px
+}
+
+.site-header nav {
+    display: flex;
+    gap: 38px
+}
+
+.site-header nav a {
+    font-size: 13px;
+    font-weight: 600;
+    color: #625b59;
+    transition: .2s
+}
+
+.site-header nav a:hover,
+.text-link:hover {
+    color: var(--pink-dark)
+}
+
+.nav-order {
+    font-size: 12px;
+    font-weight: 700;
+    border: 1px solid #e7c5c8;
+    border-radius: 30px;
+    padding: 11px 19px
+}
+
+.hero {
+    overflow: hidden;
+    padding: 78px 0 88px;
+    background: radial-gradient(circle at 78% 40%, #f9e6e5 0, transparent 34%), var(--cream)
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 60px
+}
+
+.eyebrow {
+    font-size: 10px;
+    letter-spacing: 2px;
+    font-weight: 800;
+    color: var(--pink-dark)
+}
+
+.hero h1 {
+    font-size: clamp(42px, 5.5vw, 68px);
+    line-height: 1.16;
+    letter-spacing: -2.8px;
+    margin: 19px 0 20px;
+    font-weight: 800
+}
+
+.hero h1 em,
+h2 em {
+    font-style: normal;
+    color: var(--pink-dark)
+}
+
+.hero-copy>p,
+.intro-content p,
+.ordering-grid>div>p,
+.contact-copy>p {
+    font-size: 14px;
+    color: var(--muted);
+    max-width: 500px
+}
+
+.hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 27px;
+    margin-top: 30px
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 22px;
+    border: 0;
+    border-radius: 30px;
+    padding: 14px 23px;
+    font: 700 12px 'Quicksand', sans-serif;
+    cursor: pointer
+}
+
+.btn-primary {
+    background: var(--pink-dark);
+    color: white;
+    box-shadow: 0 9px 22px #d77f9030
+}
+
+.btn-primary:hover {
+    background: #c96e80
+}
+
+.btn-light {
+    background: #fff;
+    color: #a65e6d;
+    margin-top: 22px
+}
+
+.text-link {
+    font-size: 12px;
+    font-weight: 700
+}
+
+.hero-note {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 52px
+}
+
+.note-icon {
+    width: 37px;
+    height: 37px;
+    display: grid;
+    place-items: center;
+    background: #f7e5e5;
+    border-radius: 50%;
+    color: var(--pink-dark)
+}
+
+.hero-note strong,
+.hero-note small {
+    display: block
+}
+
+.hero-note strong {
+    font-size: 11px
+}
+
+.hero-note small {
+    font-size: 10px;
+    color: var(--muted)
+}
+
+.hero-visual {
+    height: 420px;
+    position: relative;
+    display: grid;
+    place-items: center
+}
+
+.hero-blob {
+    position: absolute;
+    width: 370px;
+    height: 370px;
+    border-radius: 48% 52% 54% 46%;
+    background: var(--mint);
+    transform: rotate(-13deg)
+}
+
+.hero-photo {
+    position: relative;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 12px solid #fff;
+    box-shadow: 0 22px 55px #634f3d1a;
+    background: #f2d9d2;
+    display: grid;
+    place-items: center
+}
+
+.hero-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover
+}
+
+.product-feature-photo img {
+    width: 40%;
+    height: 40%;
+    object-fit: contain
+}
+
+.photo-placeholder {
+    background: linear-gradient(145deg, #f6d7d4, #e7eee5 60%, #f4e8d8);
+    display: grid;
+    place-items: center
+}
+
+.photo-hint {
+    display: none;
+    color: #8e6266;
+    font-size: 12px;
+    font-weight: 600
+}
+
+.photo-placeholder .photo-hint {
+    display: block
+}
+
+.floating-tag {
+    position: absolute;
+    right: 0;
+    bottom: 44px;
+    background: #fff;
+    padding: 13px 18px;
+    border-radius: 15px;
+    box-shadow: 0 12px 35px #4a34341a;
+    color: var(--pink-dark);
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+    gap: 9px
+}
+
+.floating-tag span {
+    font-size: 9px;
+    line-height: 1.5;
+    color: var(--ink);
+    font-weight: 700
+}
+
+.sparkle {
+    position: absolute;
+    color: var(--pink-dark)
+}
+
+.sparkle-one {
+    top: 35px;
+    right: 45px;
+    font-size: 32px
+}
+
+.sparkle-two {
+    left: 22px;
+    bottom: 70px;
+    font-size: 22px
+}
+
+.section {
+    padding: 88px 0
+}
+
+.intro {
+    background: #fff
+}
+
+/* Layout bagian Tentang DOLVA */
+.intro-grid {
+    display: grid;
+    grid-template-columns: .7fr 1.3fr;
+    gap: 70px;
+    position: relative;
+}
+
+.section-kicker {
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: var(--pink-dark)
+}
+
+.section-kicker span {
+    display: block;
+    color: #aaa09c;
+    font-weight: 600;
+    margin-top: 9px
+}
+
+.intro-content h2,
+.section-heading h2,
+.ordering h2,
+.contact h2 {
+    font-size: clamp(30px, 4vw, 43px);
+    line-height: 1.25;
+    letter-spacing: -1.5px;
+    margin: 0 0 20px
+}
+
+.intro-content p {
+    max-width: 750px
+}
+
+/* Posisi dan ukuran gambar donat Tentang DOLVA */
+#tentang .intro-content {
+    position: relative;
+}
+
+#tentang .intro-content img {
+    position: absolute;
+    width: 180px;
+    height: auto;
+    object-fit: contain;
+    left: -370px;
+    top: 65px;
+    margin: 0;
+}
+
+.benefits {
+    background: #f8f3ed
+}
+
+.section-heading {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 30px;
+    margin-bottom: 35px
+}
+
+.section-heading h2 {
+    margin: 10px 0 0
+}
+
+.section-heading>p {
+    max-width: 330px;
+    font-size: 12px;
+    color: var(--muted);
+    margin: 0 0 7px
+}
+
+.benefit-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px
+}
+
+.benefit-card {
+    position: relative;
+    background: #fff;
+    border: 1px solid #f0e9e3;
+    border-radius: 15px;
+    padding: 25px 24px 24px;
+    min-height: 190px
+}
+
+.benefit-number {
+    position: absolute;
+    right: 22px;
+    top: 18px;
+    color: #c9bfba;
+    font-size: 10px
+}
+
+.benefit-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+    background: #fae9e9;
+    color: var(--pink-dark);
+    display: grid;
+    place-items: center;
+    font-size: 20px
+}
+
+.benefit-card h3 {
+    font-size: 14px;
+    margin: 15px 0 5px
+}
+
+.benefit-card p {
+    font-size: 11px;
+    color: var(--muted);
+    margin: 0
+}
+
+.ordering {
+    background: #dceee7
+}
+
+.ordering-grid {
+    display: grid;
+    grid-template-columns: .8fr 1.2fr;
+    gap: 90px;
+    align-items: center
+}
+
+.ordering-grid>div>p {
+    max-width: 380px
+}
+
+.ordering-list article {
+    display: flex;
+    gap: 23px;
+    padding: 20px 0;
+    border-bottom: 1px solid #c7ded5
+}
+
+.ordering-list article:first-child {
+    padding-top: 0
+}
+
+.ordering-list article>span {
+    font-size: 12px;
+    color: #8eaaa0;
+    font-weight: 700
+}
+
+.ordering-list h3 {
+    font-size: 14px;
+    margin: 0 0 4px
+}
+
+.ordering-list p {
+    font-size: 11px;
+    color: #657a71;
+    margin: 0
+}
+
+.products {
+    background: #fff
+}
+
+.product-feature {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: #fff7f4;
+    border-radius: 20px;
+    overflow: hidden;
+    margin: 35px 0 38px;
+    min-height: 255px
+}
+
+.product-feature-photo {
+    min-height: 255px;
+    background: #f2ddd7;
+    display: grid;
+    place-items: center;
+    overflow: hidden
+}
+
+.product-feature-copy {
+    padding: 38px 45px;
+    align-self: center
+}
+
+.product-feature-copy h3 {
+    font-size: 27px;
+    margin: 8px 0
+}
+
+.product-feature-copy p {
+    font-size: 12px;
+    color: var(--muted);
+    max-width: 370px;
+    margin-bottom: 20px
+}
+
+.table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--line);
+    border-radius: 13px
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    min-width: 680px
+}
+
+th {
+    background: #f9f3ef;
+    color: #8c7771;
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 16px 20px
+}
+
+td {
+    padding: 17px 20px;
+    border-top: 1px solid var(--line);
+    font-size: 11px;
+    color: var(--muted);
+    vertical-align: top
+}
+
+td strong,
+td small {
+    display: block
+}
+
+td strong {
+    font-size: 12px;
+    color: var(--ink)
+}
+
+td small {
+    font-size: 9px;
+    color: #a49a95;
+    margin-top: 3px
+}
+
+.price {
+    font-weight: 800;
+    color: var(--pink-dark);
+    white-space: nowrap
+}
+
+/* Foto donat pada tabel produk */
+.product-table-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.product-table-info img {
+    width: 55px;
+    height: 55px;
+    object-fit: cover;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.contact {
+    background: #fbf3ef
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr .9fr;
+    gap: 100px;
+    align-items: center
+}
+
+.contact-copy h2 {
+    margin: 12px 0 18px
+}
+
+.contact-detail {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+    align-items: flex-start
+}
+
+.contact-detail>span {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #f5e0df;
+    color: var(--pink-dark);
+    display: grid;
+    place-items: center
+}
+
+.contact-detail small {
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    color: #a18d87;
+    font-weight: 800
+}
+
+.contact-detail p {
+    font-size: 12px;
+    margin: 2px 0
+}
+
+.contact-card {
+    background: #fff;
+    padding: 30px;
+    border-radius: 17px;
+    box-shadow: 0 15px 45px #6b4b4010
+}
+
+.contact-card h3 {
+    font-size: 19px;
+    margin: 0
+}
+
+.form-note {
+    font-size: 10px;
+    color: #958985;
+    margin: 5px 0 20px
+}
+
+.contact-card form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px
+}
+
+.contact-card label {
+    font-size: 10px;
+    font-weight: 700;
+    margin-top: 7px
+}
+
+.contact-card input,
+.contact-card textarea {
+    width: 100%;
+    border: 1px solid #eee5df;
+    background: #fffdfa;
+    border-radius: 8px;
+    padding: 12px;
+    font: 500 11px 'Nunito', sans-serif;
+    outline: none
+}
+
+.contact-card input:focus,
+.contact-card textarea:focus {
+    border-color: var(--pink)
+}
+
+.contact-card textarea {
+    resize: vertical
+}
+
+.contact-card button {
+    align-self: flex-start;
+    margin-top: 10px
+}
+
+footer {
+    background: #302b2b;
+    color: #fff;
+    padding: 25px 0
+}
+
+.footer-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px
+}
+
+.footer-brand {
+    color: #fff;
+    font-size: 23px
+}
+
+.footer-brand small {
+    color: #c7bab5
+}
+
+.footer-wrap>p,
+.back-top {
+    font-size: 9px;
+    color: #c7bab5
+}
+
+.back-top:hover {
+    color: #fff
+}
+
+@media(max-width:760px) {
+    .container {
+        width: min(100% - 34px, 560px)
+    }
+
+    .site-header {
+        height: auto;
+        padding: 17px 0
+    }
+
+    .nav-wrap {
+        flex-wrap: wrap;
+        gap: 15px
+    }
+
+    .brand {
+        font-size: 23px
+    }
+
+    .site-header nav {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        gap: 30px;
+        padding-top: 8px
+    }
+
+    .nav-order {
+        font-size: 10px;
+        padding: 9px 13px
+    }
+
+    .hero {
+        padding: 55px 0 45px
+    }
+
+    .hero-grid,
+    .intro-grid,
+    .ordering-grid,
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 35px
+    }
+
+    .hero h1 {
+        font-size: 48px
+    }
+
+    .hero-visual {
+        height: 340px;
+        grid-row: 1
+    }
+
+    .hero-blob {
+        width: 290px;
+        height: 290px
+    }
+
+    .hero-photo {
+        width: 275px;
+        height: 275px
+    }
+
+    .floating-tag {
+        right: 5px;
+        bottom: 25px
+    }
+
+    .hero-note {
+        margin-top: 32px
+    }
+
+    .section {
+        padding: 62px 0
+    }
+
+    .intro-grid {
+        gap: 20px
+    }
+
+    /* Gambar donat pada tampilan HP */
+    #tentang .intro-content img {
+        position: static;
+        width: 150px;
+        margin: 20px 0;
+    }
+
+    .section-heading {
+        display: block
+    }
+
+    .section-heading>p {
+        margin-top: 13px
+    }
+
+    .benefit-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px
+    }
+
+    .benefit-card {
+        padding: 19px 16px;
+        min-height: 185px
+    }
+
+    .ordering-grid {
+        gap: 35px
+    }
+
+    .product-feature {
+        grid-template-columns: 1fr
+    }
+
+    .product-feature-photo {
+        min-height: 220px
+    }
+
+    .product-feature-photo img {
+        width: 40%;
+        height: 40%;
+    }
+
+    .product-feature-copy {
+        padding: 27px
+    }
+
+    .product-table-info img {
+        width: 55px;
+        height: 55px;
+    }
+
+    .contact-grid {
+        gap: 35px
+    }
+
+    .footer-wrap {
+        flex-wrap: wrap
+    }
+
+    .footer-wrap>p {
+        order: 3;
+        width: 100%;
+        margin: 0
+    }
+
+    .back-top {
+        margin-left: auto
+    }
+}
+
+@media(max-width:420px) {
+    .hero h1 {
+        font-size: 41px
+    }
+
+    .hero-visual {
+        height: 295px
+    }
+
+    .hero-blob {
+        width: 250px;
+        height: 250px
+    }
+
+    .hero-photo {
+        width: 235px;
+        height: 235px
+    }
+
+    .benefit-grid {
+        grid-template-columns: 1fr
+    }
+
+    .benefit-card {
+        min-height: 0
+    }
+
+    .nav-order {
+        display: none
+    }
+
+    .site-header nav {
+        justify-content: space-between
+    }
+
+    .contact-card {
+        padding: 23px
+    }
+
+    .product-table-info img {
+        width: 48px;
+        height: 48px;
+    }
+}
